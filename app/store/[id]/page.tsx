@@ -10,7 +10,7 @@ async function page({params} : {params: {id: string}}) {
         "use server"
         const res = await createOrder(
             {
-                client_id: "3703b4b1-8b6e-4bc6-b594-236a1794100f",
+                client_id: session?.user?.id,
                 status: "pending",
             }
         )
@@ -21,7 +21,9 @@ async function page({params} : {params: {id: string}}) {
     <div>
     <div>Item : {id}</div>
     <form action={handleOrder}>
-    <Button type="submit">Order now</Button>
+      {session &&
+      <Button type="submit">Order now</Button>
+      }
     </form>
     </div>
   )
