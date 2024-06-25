@@ -1,6 +1,5 @@
 import NextAuth, { User } from "next-auth"
 import Credentials from "next-auth/providers/credentials"
-import { getUser } from "./lib/actions/clients"
  
 export const { handlers , signIn, signOut, auth } = NextAuth({
   pages: {
