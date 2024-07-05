@@ -3,8 +3,7 @@ import { createOrder } from "@/lib/actions/orders"
 import { Button } from "@nextui-org/button"
 
 
-async function page({params} : {params: {id: string}}) {
-    const {id} = params
+async function page() {
     const session = await auth()
     async function  handleOrder(data: any) {
         "use server"
@@ -18,14 +17,16 @@ async function page({params} : {params: {id: string}}) {
         
     }
   return (
-    <div>
-    <div>Item : {id}</div>
-    <form action={handleOrder}>
-      {session &&
-      <Button type="submit">Order now</Button>
-      }
-    </form>
-    </div>
+    <>
+      <div className="">
+        Place holder
+      </div>
+    {/* <form action={handleOrder}> */}
+    {/*   {session && */}
+    {/*   <Button type="submit">Order now</Button> */}
+    {/*   } */}
+    {/* </form> */}
+    </>
   )
 }
 

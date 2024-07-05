@@ -9,10 +9,10 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "Store",
-      href: "/store",
+      label: "Shop",
+      href: "/shop",
     },
-   
+
   ],
   navMenuItems: [
     {

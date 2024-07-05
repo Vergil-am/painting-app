@@ -19,7 +19,6 @@ import { auth } from "@/auth";
 
 export const Navbar = async () => {
   const session = await auth()
-  console.log(session)
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
@@ -27,7 +26,7 @@ export const Navbar = async () => {
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             {/* <Logo /> */}
-            <p className="font-bold text-inherit">Painting App</p>
+            <p className="font-bold text-inherit">Pottery shop</p>
           </NextLink>
         </NavbarBrand>
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
@@ -52,15 +51,15 @@ export const Navbar = async () => {
         className="hidden sm:flex basis-1/5 sm:basis-full"
         justify="end"
       >
-        <NavbarItem className="hidden sm:flex gap-2"> 
+        <NavbarItem className="hidden sm:flex gap-2">
 
-        {session ?
-          <SignOutButton /> : <SignInButton />
+          {session ?
+            <SignOutButton /> : <SignInButton />
 
-        }
-        </NavbarItem> 
+          }
+        </NavbarItem>
 
-        <NavbarItem className="hidden sm:flex gap-2"> 
+        <NavbarItem className="hidden sm:flex gap-2">
           <ThemeSwitch />
         </NavbarItem>
       </NavbarContent>
