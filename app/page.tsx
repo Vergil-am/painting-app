@@ -1,5 +1,7 @@
 import { auth } from "@/auth";
+import Contact from "@/components/contact";
 import KitItem from "@/components/kit-item";
+import NewsLetter from "@/components/newsletter";
 import ShopNowButton from "@/components/shop-now-button";
 import Steps from "@/components/steps";
 import Testimonials from "@/components/testimonials";
@@ -46,6 +48,8 @@ export default async function Home() {
       </section>
       <Steps />
       <Testimonials />
+      <Contact />
+      <NewsLetter />
     </div>
 
   );

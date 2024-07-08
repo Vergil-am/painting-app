@@ -1,8 +1,8 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + NextUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Pottery shop",
+  description: "Discover Your Inner Artist with Our Pottery Painting Kit",
   navItems: [
     {
       label: "Home",
@@ -55,4 +55,5 @@ export const siteConfig = {
     discord: "https://discord.gg/9b6yyZKmH4",
     sponsor: "https://patreon.com/jrgarciadev",
   },
+  location: "https://maps.app.goo.gl/6GGERbnWDMzN21ho8"
 };
