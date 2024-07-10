@@ -9,7 +9,6 @@ import { cn } from "@/lib/cn"
 
 export default function AccountSideBar({ items }: any) {
   const pathname = usePathname()
-  console.log(pathname)
   return items.length ? (
     <div className="w-full">
       {items.map((item, index) => (

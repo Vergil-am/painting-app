@@ -1,5 +1,8 @@
+import { auth } from "@/auth";
 import AccountSideBar from "@/components/AccountSideBar";
 import { Separator } from "@/components/separator";
+import { signIn } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 
 
@@ -18,11 +21,17 @@ const sidebarNavItems = [
   },
 ]
 
-export default function AccountLayout({
+export default async function AccountLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await auth()
+  if (!session) {
+    redirect("/auth/signin")
+  }
+
+
   return (
     <>
       <div className="hidden space-y-6 p-10 pb-16 md:block w-full container">
@@ -32,9 +41,9 @@ export default function AccountLayout({
             Manage your account settings and set e-mail preferences.
           </p>
         </div>
-        <Separator className="my-6" />
+        <Separator className="my-6 bg-foreground" />
         <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
-          <aside className="-mx-4 lg:w-1/5">
+          <aside className="lg:w-1/5">
             <AccountSideBar items={sidebarNavItems} />
           </aside>
           <div className="flex-1 lg:max-w-2xl">{children}</div>

@@ -17,7 +17,8 @@ import SignOutButton from "./signOutButton";
 import SignInButton from "./signInButton";
 import { auth } from "@/auth";
 
-export const Navbar = async () => {
+export default async function Navbar() {
+
   const session = await auth()
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
@@ -74,14 +75,15 @@ export const Navbar = async () => {
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === siteConfig.navMenuItems.length - 1
-                      ? "danger"
-                      : "foreground"
-                }
-                href="#"
+                color="foreground"
+                // color={
+                //   index === 2
+                //     ? "primary"
+                //     : index === siteConfig.navMenuItems.length - 1
+                //       ? "danger"
+                //       : "foreground"
+                // }
+                href={item.href}
                 size="lg"
               >
                 {item.label}

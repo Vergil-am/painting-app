@@ -16,36 +16,20 @@ export const siteConfig = {
   ],
   navMenuItems: [
     {
-      label: "Profile",
-      href: "/profile",
+      label: "Home",
+      href: "/",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
+      label: "Shop",
+      href: "/shop",
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "Account",
+      href: "/account",
     },
     {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
+      label: "Shipping & Returns",
+      href: "/shipping-and-returns",
     },
   ],
   links: {
