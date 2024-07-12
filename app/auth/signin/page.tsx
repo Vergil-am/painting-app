@@ -5,7 +5,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 
 
-export default async function page({ searchParams }
+export default async function SignIn({ searchParams }
   : { searchParams: { callbackUrl: string | undefined } }) {
   // const { register, handleSubmit, watch, formState: { errors } } = useForm(); 
   const { callbackUrl } = searchParams

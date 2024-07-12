@@ -7,7 +7,7 @@ import Link from "next/link"
 import { auth } from "@/auth"
 import { redirect } from "next/navigation"
 
-export default async function page() {
+export default async function SignUp() {
   const session = await auth()
   if (session) {
     redirect("/")

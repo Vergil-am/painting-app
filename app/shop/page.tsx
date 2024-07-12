@@ -1,7 +1,7 @@
 import { Button } from "@nextui-org/button"
 import { Input } from "@nextui-org/input"
 import Link from "next/link"
-export default function() {
+export default function Shop() {
   return (
     <div className="container">
       <section className="w-full py-12 md:py-24 lg:py-32">
