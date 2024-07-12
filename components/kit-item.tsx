@@ -7,7 +7,7 @@ export default function KitItem({ image, text }: { image: string, text: string }
         <img
           className="w-full "
           src={image}
-          alt=""
+          alt={text}
         // width={500}
         // height={500}
         />

@@ -14,7 +14,6 @@ export default async function Account() {
     },
     where: eq(clients.id, session?.user?.id as string)
   })
-  console.log(user)
 
   return (
     <div className="space-y-6">
