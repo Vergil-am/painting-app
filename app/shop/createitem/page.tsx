@@ -2,7 +2,7 @@ import { Input } from "@nextui-org/input"
 import { Button } from "@nextui-org/button"
 import argon2 from "argon2"
 import { db } from "@/db/index"
-import { inventory } from "@/db/schema"
+import { InsertInventory, inventory } from "@/db/schema"
 
 export default function CreateItem() {
   return (
@@ -13,12 +13,13 @@ export default function CreateItem() {
           "use server"
           console.log(data)
 
-          const newItem = await db.insert(inventory).values({
-            item_name: data.get("item_name"),
-            quantity: data.get("quantity"),
-            threshold: data.get("threshold"),
-          }).returning({ itemId: inventory.id })
-          console.log(newItem)
+          const item: InsertInventory = {
+            item_name: data.get("item_name") as string,
+            quantity: Number(data.get("quantity")),
+            threshold: Number(data.get("threshold")),
+
+          }
+          const newItem = await db.insert(inventory).values(item).returning({ itemId: inventory.id })
         }
 
       }>

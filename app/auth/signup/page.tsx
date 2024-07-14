@@ -6,6 +6,7 @@ import { clients } from "@/db/schema"
 import Link from "next/link"
 import { auth } from "@/auth"
 import { redirect } from "next/navigation"
+import { InsertClient } from "@/db/schema"
 
 export default async function SignUp() {
   const session = await auth()
@@ -36,13 +37,15 @@ export default async function SignUp() {
             const password = await argon2.hash(data.get("password") as string)
             console.log(password)
 
-            const newUser = await db.insert(clients).values({
-              name: data.get("name"),
-              email: data.get("email"),
+            const user: InsertClient = {
+              name: data.get("name") as string,
+              email: data.get("email") as string,
               password: password,
-              phone: data.get("phone"),
-              address: data.get("address")
-            }).returning({ userId: clients.id })
+              phone: data.get("phone") as string,
+              address: data.get("address") as string
+            }
+
+            const newUser = await db.insert(clients).values(user).returning({ userId: clients.id })
             console.log(newUser)
           }}
         >
