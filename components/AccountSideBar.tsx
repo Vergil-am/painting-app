@@ -11,7 +11,7 @@ export default function AccountSideBar({ items }: any) {
   const pathname = usePathname()
   return items.length ? (
     <div className="w-full">
-      {items.map((item, index) => (
+      {items.map((item: any, index: any) => (
         <Link
           key={index}
           href={item.href}
