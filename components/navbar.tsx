@@ -13,13 +13,10 @@ import NextLink from "next/link";
 import clsx from "clsx";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import SignOutButton from "./signOutButton";
-import SignInButton from "./signInButton";
-import { auth } from "@/auth";
+import NavBarUser from "./navBarUser";
 
-export default async function Navbar() {
+export default function Navbar() {
 
-  const session = await auth()
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
@@ -53,11 +50,7 @@ export default async function Navbar() {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-
-          {session ?
-            <SignOutButton /> : <SignInButton />
-
-          }
+          <NavBarUser />
         </NavbarItem>
 
         <NavbarItem className="hidden sm:flex gap-2">
