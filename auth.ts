@@ -13,7 +13,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       authorize: async (credentials) => {
         let user = null
-        const res = await fetch('http://localhost:3000/api/auth/getuser', {
+        const res = await fetch(`{process.env.DOMAIN}/api/auth/getuser`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(credentials),
