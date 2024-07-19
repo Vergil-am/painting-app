@@ -9,10 +9,10 @@ import { redirect } from "next/navigation"
 import { InsertClient } from "@/db/schema"
 
 export default async function SignUp() {
-  const session = await auth()
-  if (session) {
-    redirect("/")
-  }
+//  const session = await auth()
+ // if (session) {
+   // redirect("/")
+  //}
   return (
     <section className="container flex justify-center items-center h-[80dvh]">
       <div className="space-y-4 text-center lg:text-left">
