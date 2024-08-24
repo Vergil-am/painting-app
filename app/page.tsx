@@ -7,9 +7,6 @@ import Steps from "@/components/steps";
 import Testimonials from "@/components/testimonials";
 
 export default async function Home() {
-
-  const session = await auth()
-  console.log("session homepage", session)
   return (
     <div className="container">
       <section className="w-full py-12 md:py-24 lg:py-32">
@@ -41,9 +38,6 @@ export default async function Home() {
           <KitItem image="https://cdn-icons-png.freepik.com/512/16350/16350557.png" text="Paint set" />
           <KitItem image="https://cdn-icons-png.freepik.com/512/1313/1313511.png" text="Brushes" />
           <KitItem image="https://cdn-icons-png.freepik.com/512/2618/2618630.png" text="instructions" />
-        </div>
-        <div className="flex justify-center w-full py-12">
-          <ShopNowButton />
         </div>
       </section>
       <Steps />

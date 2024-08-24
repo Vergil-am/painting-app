@@ -34,13 +34,14 @@ export default async function SignUp() {
           action={async (data) => {
             "use server"
             console.log(data)
-            const password = await argon2.hash(data.get("password") as string)
-            console.log(password)
+            // const password = await argon2.hash(data.get("password") as string)
+            // console.log(password)
 
             const user: InsertClient = {
               name: data.get("name") as string,
               email: data.get("email") as string,
-              password: password,
+              // password: password,
+              password: data.get("password") as string,
               phone: data.get("phone") as string,
               address: data.get("address") as string
             }

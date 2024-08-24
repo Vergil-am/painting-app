@@ -4,6 +4,7 @@ import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
   const { email, password } = await req.json()
+  console.log("API hit")
 
   const user = await getUser(email)
   if (!user) {

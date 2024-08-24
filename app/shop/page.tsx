@@ -18,7 +18,7 @@ export default function Shop() {
               className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
               prefetch={false}
             >
-              Buy Now
+              Order Now
             </Link>
           </div>
           <img
@@ -76,21 +76,6 @@ export default function Shop() {
             23 Art Lane, Creativity City, ST 12345.<br />
             Business hours: Mon-Sat 10 AM - 8 PM, Sun 12 PM - 6 PM.
           </p>
-        </div>
-      </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 container ">
-        <div className="space-y-4 text-center lg:text-left w-full flex flex-col items-center">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl ">
-            Track you order
-          </h1>
-          <p className="text-muted-foreground md:text-xl text-center">
-            Enter your order number and email address to see the status of your order.
-          </p>
-          <div className="flex flex-col gap-4 py-12 w-[500px] items-center">
-            <Input placeholder="test" type="text" label="Order number" labelPlacement="outside" isClearable />
-            <Input placeholder="youremail@email.com" label="Email" type="email" labelPlacement="outside" isClearable />
-            <Button size="lg">Track Order</Button>
-          </div>
         </div>
       </section>
     </div>

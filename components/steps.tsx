@@ -17,9 +17,6 @@ export default function Steps() {
         <Step title="Paint at Home" text="Unleash your creativity and paint your pottery piece." icon={<BrushIcon />} />
         <Step title="Glaze and Fire" text="Return your painted piece to us for professional glazing and firing." icon={<FireIcon />} />
         <Step title="Pick Up or Ship" text="Receive notifications as your piece progresses through each stage. Pick up in-store or have it shipped to your home." icon={<ShipIcon />} />
-        <div className="flex justify-center">
-          <Button className="mt-8">Order Now</Button>
-        </div>
       </div>
     </section>
   )

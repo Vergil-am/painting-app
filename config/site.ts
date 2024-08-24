@@ -5,23 +5,23 @@ export const siteConfig = {
   description: "Discover Your Inner Artist with Our Pottery Painting Kit",
   navItems: [
     {
-      label: "Home",
-      href: "/",
+      label: "Shop online",
+      href: "/shop",
     },
     {
-      label: "Shop",
-      href: "/shop",
+      label: "Tracking",
+      href: "/track",
     },
 
   ],
   navMenuItems: [
     {
-      label: "Home",
-      href: "/",
+      label: "Shop online",
+      href: "/shop",
     },
     {
-      label: "Shop",
-      href: "/shop",
+      label: "Tracking",
+      href: "/track",
     },
     {
       label: "Account",

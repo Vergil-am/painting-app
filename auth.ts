@@ -1,5 +1,8 @@
 import NextAuth, { User } from "next-auth"
 import Credentials from "next-auth/providers/credentials"
+import { getUser } from "./lib/actions/clients"
+import axios from "axios"
+import { cache } from "react"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   pages: {
@@ -13,13 +16,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       authorize: async (credentials) => {
         let user = null
-        const res = await fetch(`{process.env.DOMAIN}/api/auth/getuser`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(credentials),
-        });
-        user = await res.json()
-
+        // const res = await fetch(`${process.env.DOMAIN}/api/getuser`, {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify(credentials),
+        // });
+        user = await getUser(credentials.email as string)
+        if (!user) {
+          throw new Error("Email or password wrong")
+        }
+        // user = await res.json()
         return user
       }
     }
