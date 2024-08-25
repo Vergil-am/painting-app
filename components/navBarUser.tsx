@@ -2,10 +2,14 @@
 import { signIn, signOut, useSession } from "next-auth/react"
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/dropdown"
 import { Button } from "@nextui-org/button"
-import { UserIcon } from "./icons"
+import { HamburgerMenuIcon, UserIcon } from "./icons"
 import { Link } from "@nextui-org/link"
+import { useTheme } from "next-themes"
 
 export default function NavBarUser() {
+  const { theme } = useTheme()
+
+  console.log(theme)
   const session = useSession()
   console.log(session)
 
@@ -20,9 +24,10 @@ export default function NavBarUser() {
         <DropdownTrigger>
           <Button
             isIconOnly
-            className="bg-foreground-500 p-1 rounded-full"
+            className=" w-20 p-2 justify-between"
           >
-            <UserIcon />
+            <UserIcon fill={theme == "dark" ? "#A5EEFD" : "#053B48"} />
+            <HamburgerMenuIcon stroke={theme == "dark" ? "#A5EEFD" : "#053B48"} />
           </Button>
         </DropdownTrigger>
         <DropdownMenu aria-label="Static Actions">

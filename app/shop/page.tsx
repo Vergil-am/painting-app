@@ -1,3 +1,4 @@
+import OrderButton from "@/components/orderButton"
 import { Button } from "@nextui-org/button"
 import { Input } from "@nextui-org/input"
 import Link from "next/link"
@@ -13,13 +14,7 @@ export default function Shop() {
             <p className="text-muted-foreground md:text-xl">
               Bring the pottery painting fun home with our all-inclusive kit.
             </p>
-            <Link
-              href="/shop/details"
-              className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-              prefetch={false}
-            >
-              Order Now
-            </Link>
+            <OrderButton />
           </div>
           <img
             src="https://generated.vusercontent.net/placeholder.svg"
