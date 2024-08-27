@@ -4,12 +4,14 @@ import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import { Select, SelectItem } from "@nextui-org/select"
 import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { Toaster, toast } from "react-hot-toast"
 
 
 
 export default function OrderPage({ searchParams }: { searchParams: { step: string } }) {
   const session = useSession()
+  const router = useRouter()
   if (session.status == "loading") {
     return (
       <div>Loading ...</div>
@@ -71,7 +73,6 @@ export default function OrderPage({ searchParams }: { searchParams: { step: stri
                       {numbers.map((num) => {
                         return (
                           <SelectItem textValue={num.toString()} key={num}>{num}</SelectItem>
-
                         )
                       })}
                     </Select>
@@ -103,9 +104,9 @@ export default function OrderPage({ searchParams }: { searchParams: { step: stri
                   toast.promise(sumbitOrder, {
                     loading: "loading ...",
                     success: "Order created successfully",
-                    error: "An erro occured processing your order"
-                  }
-                  )
+                    error: "An error occured processing your order"
+                  })
+                  sumbitOrder.then((order) => router.push(`/shop/order/payment/${order?.[0].order_nmber}`))
                 }}
               >
                 <div>

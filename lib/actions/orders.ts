@@ -3,7 +3,7 @@ import { db } from "@/db/index"
 import { InsertOrder, SelectOrder, orders } from "@/db/schema"
 import { getUserById } from "./clients"
 import { SendSMS } from "./twillio"
-import { or } from "drizzle-orm"
+import { eq, or } from "drizzle-orm"
 
 export async function createOrder(order: InsertOrder) {
   try {
@@ -22,6 +22,17 @@ export async function createOrder(order: InsertOrder) {
     //   await SendSMS(user?.phone, `your order number : ${newOrder[0].order_nmber} has been created ${newOrder[0].created_at}`)
     // }
     return newOrder
+  } catch (e) {
+    return
+  }
+}
+
+export async function getOrderById(id: string) {
+  try {
+    const order = await db.select().from(orders).where(eq(orders.id, id))
+
+    return order
+
   } catch (e) {
     return
   }
