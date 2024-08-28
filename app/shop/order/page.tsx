@@ -6,8 +6,14 @@ import { Select, SelectItem } from "@nextui-org/select"
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Toaster, toast } from "react-hot-toast"
+import { loadStripe } from "@stripe/stripe-js";
+import { json } from "stream/consumers";
 
 
+if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY == undefined) {
+  throw new Error("NEXT_PUBLIC_STRIPE_PUBLIC_KEY is undefined")
+}
+const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)
 
 export default function OrderPage({ searchParams }: { searchParams: { step: string } }) {
   const session = useSession()
@@ -100,13 +106,21 @@ export default function OrderPage({ searchParams }: { searchParams: { step: stri
                     phone: data.get("phone") as string,
                     address: data.get("address") as string,
                   }
-                  const sumbitOrder = createOrder(order)
-                  toast.promise(sumbitOrder, {
-                    loading: "loading ...",
-                    success: "Order created successfully",
-                    error: "An error occured processing your order"
+                  // const submitOrder = createOrder(order)
+                  // toast.promise(submitOrder, {
+                  //   loading: "loading ...",
+                  //   success: "Order created successfully",
+                  //   error: "An error occured processing your order"
+                  // })
+                  // sumbitOrder.then((order) => router.push(`/shop/order/payment/${order?.[0].order_nmber}`))
+                  // submitOrder.then(async () => {
+                  const res = await fetch("/api/create-payment", {
+                    method: "POST",
+                    redirect: "follow",
                   })
-                  sumbitOrder.then((order) => router.push(`/shop/order/payment/${order?.[0].order_nmber}`))
+                  console.log(res)
+                  // router.push(res.url)
+                  // })
                 }}
               >
                 <div>
