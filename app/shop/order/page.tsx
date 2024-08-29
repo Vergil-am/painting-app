@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { Toaster, toast } from "react-hot-toast"
 import { loadStripe } from "@stripe/stripe-js";
 import { json } from "stream/consumers";
+import axios from "axios";
 
 
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY == undefined) {
@@ -62,7 +63,7 @@ export default function OrderPage({ searchParams }: { searchParams: { step: stri
               <h2 className="text-2xl font-bold mb-4">Order Summary</h2>
               <div className="flex items-center mb-4">
                 <div className="w-20 h-20 rounded-lg overflow-hidden mr-4">
-                  <img src="https://generated.vusercontent.net/placeholder.svg" alt="Pottery Kit" className="w-full h-full object-cover" />
+                  <img src="https://i.etsystatic.com/22855495/r/il/79724a/2947516037/il_570xN.2947516037_ocui.jpg" alt="Pottery Kit" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="text-lg font-medium">Pottery Kit</h3>
@@ -106,21 +107,19 @@ export default function OrderPage({ searchParams }: { searchParams: { step: stri
                     phone: data.get("phone") as string,
                     address: data.get("address") as string,
                   }
-                  // const submitOrder = createOrder(order)
-                  // toast.promise(submitOrder, {
-                  //   loading: "loading ...",
-                  //   success: "Order created successfully",
-                  //   error: "An error occured processing your order"
-                  // })
-                  // sumbitOrder.then((order) => router.push(`/shop/order/payment/${order?.[0].order_nmber}`))
-                  // submitOrder.then(async () => {
-                  const res = await fetch("/api/create-payment", {
-                    method: "POST",
-                    redirect: "follow",
+                  const submitOrder = createOrder(order)
+                  toast.promise(submitOrder, {
+                    loading: "loading ...",
+                    success: "Order created successfully",
+                    error: "An error occured processing your order"
                   })
-                  console.log(res)
-                  // router.push(res.url)
-                  // })
+                  // sumbitOrder.then((order) => router.push(`/shop/order/payment/${order?.[0].order_nmber}`))
+                  submitOrder.then(async () => {
+                    const res = await axios.post("/api/create-payment", {
+                      method: "POST",
+                    })
+                    router.push(res.data)
+                  })
                 }}
               >
                 <div>
