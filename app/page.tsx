@@ -5,6 +5,8 @@ import NewsLetter from "@/components/newsletter";
 import ShopNowButton from "@/components/shop-now-button";
 import Steps from "@/components/steps";
 import Testimonials from "@/components/testimonials";
+import { Button } from "@nextui-org/button";
+import { Link } from "@nextui-org/link";
 
 export default async function Home() {
   return (
@@ -20,12 +22,19 @@ export default async function Home() {
           />
           <div className="space-y-4 text-center lg:text-left">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Discover Your Inner Artist with Our Pottery Painting Kit.
+              Welcome to Pottery-Shop A place where creativity meets fun.
             </h1>
             <p className="text-muted-foreground md:text-xl">
-              Everything you need to create beautiful pottery at home.
+              Sip, paint, and create lasting memories with your loved ones.
             </p>
-            <ShopNowButton />
+            <div className="flex justify-around">
+              <Button variant="bordered" as={Link} href="/shop">
+                Buy Our Kits Online
+              </Button>
+              <Button variant="light" as={Link} href="/reservation">
+                Reserve a Table
+              </Button>
+            </div>
           </div>
         </div>
       </section>

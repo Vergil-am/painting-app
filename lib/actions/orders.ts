@@ -1,9 +1,8 @@
 "use server"
 import { db } from "@/db/index"
-import { InsertOrder, SelectOrder, orders } from "@/db/schema"
-import { getUserById } from "./clients"
+import { InsertOrder, orders } from "@/db/schema"
 import { SendSMS } from "./twillio"
-import { eq, or } from "drizzle-orm"
+import { eq } from "drizzle-orm"
 
 export async function createOrder(order: InsertOrder) {
   try {
@@ -29,10 +28,17 @@ export async function createOrder(order: InsertOrder) {
 
 export async function getOrderById(id: string) {
   try {
-    const order = await db.select().from(orders).where(eq(orders.id, id))
+    const order = await db.select().from(orders).where(eq(orders.id, id)).execute()
+    return order[0]
 
-    return order
+  } catch (e) {
+    return
+  }
+}
 
+export async function getOrdersByUser(userId: string) {
+  try {
+    return await db.select().from(orders).where(eq(orders.client_id, userId))
   } catch (e) {
     return
   }

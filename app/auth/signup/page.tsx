@@ -4,14 +4,15 @@ import argon2 from "argon2"
 import { db } from "@/db/index"
 import { clients } from "@/db/schema"
 import Link from "next/link"
-import { auth } from "@/auth"
+import { auth, signIn } from "@/auth"
 import { redirect } from "next/navigation"
 import { InsertClient } from "@/db/schema"
+import { toast } from "react-hot-toast"
 
 export default async function SignUp() {
-//  const session = await auth()
- // if (session) {
-   // redirect("/")
+  //  const session = await auth()
+  // if (session) {
+  // redirect("/")
   //}
   return (
     <section className="container flex justify-center items-center h-[80dvh]">
@@ -46,8 +47,13 @@ export default async function SignUp() {
               address: data.get("address") as string
             }
 
-            const newUser = await db.insert(clients).values(user).returning({ userId: clients.id })
-            console.log(newUser)
+            const createUser = db.insert(clients).values(user).returning({ userId: clients.id })
+            toast.promise(createUser, {
+              loading: "loading",
+              success: "account created successfully",
+              error: "couldn't create your account",
+            })
+            signIn()
           }}
         >
           <Input name="name" type="text" label="Name" placeholder="Enter your full name" />

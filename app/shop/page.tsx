@@ -1,7 +1,8 @@
+import { Button } from "@nextui-org/button"
+import { Link } from "@nextui-org/link"
 
 
 
-import Link from "next/link"
 export default function Shop() {
   return (
     <div className="container">
@@ -14,13 +15,9 @@ export default function Shop() {
             <p className="text-muted-foreground md:text-xl">
               Bring the pottery painting fun home with our all-inclusive kit.
             </p>
-            <Link
-              href="/shop/order"
-              className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-              prefetch={false}
-            >
-              Order now
-            </Link>
+            <Button variant="bordered" as={Link} href="/shop/order">
+              Buy Our Kits Online
+            </Button>
             {/* <OrderButton /> */}
           </div>
           <img
@@ -58,13 +55,11 @@ export default function Shop() {
             <p className="text-muted-foreground md:text-xl">
               Price : 29.99$
             </p>
-            <Link
-              href="/shop/details"
-              className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-              prefetch={false}
+            <Button
+              variant="ghost"
             >
               Add to cart
-            </Link>
+            </Button>
           </div>
         </div>
       </section>

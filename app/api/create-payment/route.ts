@@ -1,6 +1,7 @@
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
-export async function POST(req: Request, res: Response) {
+
+export async function POST(req: Request) {
   try {
     const session = await stripe.checkout.sessions.create({
       line_items: [{

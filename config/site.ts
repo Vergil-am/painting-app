@@ -12,6 +12,14 @@ export const siteConfig = {
       label: "Tracking",
       href: "/track",
     },
+    {
+      label: "My orders",
+      href: "/orders"
+    },
+    {
+      label: "About us",
+      href: "/about"
+    }
 
   ],
   navMenuItems: [

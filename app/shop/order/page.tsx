@@ -14,7 +14,6 @@ import axios from "axios";
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY == undefined) {
   throw new Error("NEXT_PUBLIC_STRIPE_PUBLIC_KEY is undefined")
 }
-const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)
 
 export default function OrderPage({ searchParams }: { searchParams: { step: string } }) {
   const session = useSession()
@@ -115,9 +114,7 @@ export default function OrderPage({ searchParams }: { searchParams: { step: stri
                   })
                   // sumbitOrder.then((order) => router.push(`/shop/order/payment/${order?.[0].order_nmber}`))
                   submitOrder.then(async () => {
-                    const res = await axios.post("/api/create-payment", {
-                      method: "POST",
-                    })
+                    const res = await axios.post("/api/create-payment")
                     router.push(res.data)
                   })
                 }}

@@ -23,6 +23,7 @@ export default function NavBarUser() {
       <Dropdown>
         <DropdownTrigger>
           <Button
+            variant="light"
             isIconOnly
             className=" w-20 p-2 justify-between"
           >
