@@ -38,6 +38,11 @@ export default async function Home() {
           </div>
         </div>
       </section>
+      <section className="w-full h-[60dvh] py-12 md:py-24 lg:py-32 bg-[url('https://generated.vusercontent.net/placeholder.svg')] bg-center rounded-lg flex flex-col justify-center items-center gap-6">
+        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl" >Explore Our Pottery Items</h1>
+        <p className="text-muted-foreground md:text-xl">Pick from a wide variety of pottery pieces ready for your artistic touch.</p>
+        <Button variant="faded">Explore Pottery</Button>
+      </section>
       <section className="w-full py-12 md:py-24 lg:py-32">
         <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
           Our pottery kit includes
