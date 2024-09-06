@@ -10,7 +10,7 @@ export default function About() {
         </h1>
         <p className="leading-7 [&:not(:first-child)]:mt-6 ">
           we believe in the joy of creating together.
-          Whether you're painting your first mug or glazing a masterpiece,
+          Whether you&apos;re painting your first mug or glazing a masterpiece,
           our space is designed to inspire creativity in a relaxed,
           welcoming atmosphere.
         </p>
