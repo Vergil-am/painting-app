@@ -14,6 +14,7 @@ export default function OrdersTable({ orders }: { orders: SelectOrder[] }) {
         <TableColumn>STATUS</TableColumn>
       </TableHeader>
       <TableBody>
+
         {orders.map((order) => {
           return (
             <TableRow key={order.id}>
@@ -26,6 +27,7 @@ export default function OrdersTable({ orders }: { orders: SelectOrder[] }) {
             </TableRow>
           )
         })}
+
       </TableBody>
     </Table>
   )
