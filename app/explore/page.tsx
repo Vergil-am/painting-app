@@ -29,8 +29,8 @@ export default function Explore() {
       <p className="text-lg font-semibold my-6">
         Choose from a wide variety of pottery items,
         each waiting for your creative touch.<br />
-        Whether it's a mug, plate, or vase,
-        you'll find the perfect canvas here.
+        Whether it&apos;s a mug, plate, or vase,
+        you&apos;ll find the perfect canvas here.
       </p>
       <section className="flex flex-wrap gap-6 my-6">
         {
