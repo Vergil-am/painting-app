@@ -58,7 +58,7 @@ export default function Shop() {
               <h1 className=" scroll-m-20 text-3xl font-semibold tracking-tight transition-colors">
                 Glazing Kit
               </h1>
-              <p className="text-sm text-muted-foreground text-center">Paint your pottery at home, then send it back to us for glazing. We'll ship it back to you once it's ready!</p>
+              <p className="text-sm text-muted-foreground text-center">Paint your pottery at home, then send it back to us for glazing. We&apos;ll ship it back to you once it's ready!</p>
             </CardHeader>
             <CardBody>
               <img src="https://generated.vusercontent.net/placeholder.svg" />
@@ -75,7 +75,7 @@ export default function Shop() {
           <div className="grid gap-4 text-center">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">How does it work?</h2>
             <p className="max-w-[600px] mx-auto text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Order your kit, and we'll deliver it with everything you need to create at home <br />
+              Order your kit, and we&apos;ll deliver it with everything you need to create at home <br />
               If you choose a glazing kit:
             </p>
           </div>
@@ -98,7 +98,7 @@ export default function Shop() {
               {/* <TruckIcon className="h-12 w-12 text-primary" /> */}
               <h3 className="font-semibold">Glazing</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                and we'll handle the rest
+                and we&apos;ll handle the rest
               </p>
             </div>
           </div>
