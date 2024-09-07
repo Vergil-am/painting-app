@@ -35,7 +35,7 @@ const questions = [
     answer: "Not answered yet"
   },
   {
-    question: `What if I have a question that’s not listed here?`,
+    question: `What if I have a question that&apos;s not listed here?`,
     answer: "Not answered yet"
   },
 

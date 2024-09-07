@@ -42,7 +42,7 @@ export default function Shop() {
               <p className="text-sm text-muted-foreground text-center">Everything you need to paint a mug at home. No need to send it back—just enjoy!</p>
             </CardHeader>
             <CardBody>
-              <img src="https://generated.vusercontent.net/placeholder.svg" alt="Ready-Made Mug Kit image" />
+              <img src="https://generated.vusercontent.net/placeholder.svg" alt="Ready-Made Mug Kit" />
             </CardBody>
             <CardFooter className="justify-between px-6">
               <h1 className=" scroll-m-20 text-3xl font-semibold tracking-tight transition-colors">$20.00</h1>
@@ -58,10 +58,10 @@ export default function Shop() {
               <h1 className=" scroll-m-20 text-3xl font-semibold tracking-tight transition-colors">
                 Glazing Kit
               </h1>
-              <p className="text-sm text-muted-foreground text-center">Paint your pottery at home, then send it back to us for glazing. We&apos;ll ship it back to you once it's ready!</p>
+              <p className="text-sm text-muted-foreground text-center">Paint your pottery at home, then send it back to us for glazing. We&apos;ll ship it back to you once it&apos;s ready!</p>
             </CardHeader>
             <CardBody>
-              <img src="https://generated.vusercontent.net/placeholder.svg" alt="Glazing Kit image" />
+              <img src="https://generated.vusercontent.net/placeholder.svg" alt="Glazing Kit " />
             </CardBody>
             <CardFooter className="justify-between px-6 ">
               <h1 className=" scroll-m-20 text-3xl font-semibold tracking-tight transition-colors">$25.00</h1>

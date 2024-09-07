@@ -20,7 +20,7 @@ export default function Testimonials() {
       {/* </div> */}
       <div className="flex justify-center w-full pb-32">
         <p className='text-muted-foreground md:text-xl'>
-          We love hearing from our customers! Here's what they have to say about their experience with us.
+          We love hearing from our customers! Here&apos;s what they have to say about their experience with us.
         </p>
       </div>
     </section>
