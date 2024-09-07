@@ -22,7 +22,7 @@ export const siteConfig = {
     },
     {
       label: "FAQ",
-      href: "/Q&A"
+      href: "/FAQ"
     },
 
   ],
