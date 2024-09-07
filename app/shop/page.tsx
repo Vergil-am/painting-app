@@ -11,7 +11,7 @@ export default function Shop() {
         <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-10">
           <div className="space-y-4 text-center lg:text-left">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Can't make it to the shop?
+              Can&apos;t make it to the shop?
             </h1>
             <p className="text-muted-foreground md:text-xl">
               No problem! Bring the pottery painting experience home with our kits
