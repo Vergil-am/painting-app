@@ -19,7 +19,11 @@ export const siteConfig = {
     {
       label: "About us",
       href: "/about"
-    }
+    },
+    {
+      label: "FAQ",
+      href: "/Q&A"
+    },
 
   ],
   navMenuItems: [
@@ -38,6 +42,18 @@ export const siteConfig = {
     {
       label: "Shipping & Returns",
       href: "/shipping-and-returns",
+    },
+    {
+      label: "My orders",
+      href: "/orders"
+    },
+    {
+      label: "About us",
+      href: "/about"
+    },
+    {
+      label: "FAQ",
+      href: "/FAQ"
     },
   ],
   links: {

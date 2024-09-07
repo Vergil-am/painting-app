@@ -366,3 +366,4 @@ export const HamburgerMenuIcon: React.FC<IconSvgProps> = (props) => {
           strokeWidth="1.5" strokeLinecap="round"></path> </g></svg>
   )
 }
+

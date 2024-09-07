@@ -1,9 +1,5 @@
-import { auth } from "@/auth";
 import Contact from "@/components/contact";
-import KitItem from "@/components/kit-item";
 import NewsLetter from "@/components/newsletter";
-import ShopNowButton from "@/components/shop-now-button";
-import Steps from "@/components/steps";
 import Testimonials from "@/components/testimonials";
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
@@ -43,18 +39,18 @@ export default async function Home() {
         <p className="text-muted-foreground md:text-xl">Pick from a wide variety of pottery pieces ready for your artistic touch.</p>
         <Button variant="faded">Explore Pottery</Button>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32">
-        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
-          Our pottery kit includes
-        </h1>
-        <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-4 lg:gap-10">
-          <KitItem image="https://cdn-icons-png.flaticon.com/512/9607/9607438.png" text="Pottery piece" />
-          <KitItem image="https://cdn-icons-png.freepik.com/512/16350/16350557.png" text="Paint set" />
-          <KitItem image="https://cdn-icons-png.freepik.com/512/1313/1313511.png" text="Brushes" />
-          <KitItem image="https://cdn-icons-png.freepik.com/512/2618/2618630.png" text="instructions" />
-        </div>
-      </section>
-      <Steps />
+      {/* <section className="w-full py-12 md:py-24 lg:py-32"> */}
+      {/*   <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center"> */}
+      {/*     Our pottery kit includes */}
+      {/*   </h1> */}
+      {/*   <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-4 lg:gap-10"> */}
+      {/*     <KitItem image="https://cdn-icons-png.flaticon.com/512/9607/9607438.png" text="Pottery piece" /> */}
+      {/*     <KitItem image="https://cdn-icons-png.freepik.com/512/16350/16350557.png" text="Paint set" /> */}
+      {/*     <KitItem image="https://cdn-icons-png.freepik.com/512/1313/1313511.png" text="Brushes" /> */}
+      {/*     <KitItem image="https://cdn-icons-png.freepik.com/512/2618/2618630.png" text="instructions" /> */}
+      {/*   </div> */}
+      {/* </section> */}
+      {/* <Steps /> */}
       <Testimonials />
       <Contact />
       <NewsLetter />

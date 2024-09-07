@@ -13,8 +13,7 @@ export default function OrdersTable({ orders }: { orders: SelectOrder[] }) {
         <TableColumn>Oder date</TableColumn>
         <TableColumn>STATUS</TableColumn>
       </TableHeader>
-      <TableBody>
-
+      <TableBody emptyContent={"No orders to display"}>
         {orders.map((order) => {
           return (
             <TableRow key={order.id}>
