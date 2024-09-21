@@ -43,3 +43,12 @@ export async function getOrdersByUser(userId: string) {
     return
   }
 }
+
+export async function getAllOrders() {
+  try {
+    return await db.select().from(orders).execute()
+
+  } catch (e) {
+    return
+  }
+}

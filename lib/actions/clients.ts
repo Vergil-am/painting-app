@@ -36,8 +36,7 @@ export async function getUserById(id: string) {
 
 export async function getAllUsers() {
   try {
-    const users = db.select().from(clients).execute()
-    console.log(users)
+    const users = await db.select().from(clients).execute()
     return users
   } catch (e) {
     return
