@@ -1,12 +1,11 @@
+"use server"
 import { db } from "@/db/index"
 import { InsertInventory, SelectInventory, inventory } from "@/db/schema"
 import { eq } from "drizzle-orm"
 
 export async function getInventory() {
   try {
-    const items = await db.select({
-      inventory
-    }).from(inventory).execute()
+    const items = await db.select().from(inventory).execute()
 
     return items
   } catch (e) {
@@ -18,7 +17,6 @@ export async function getInventory() {
 export async function addInventory(item: InsertInventory) {
   try {
     const newItem = await db.insert(inventory).values(item).returning({ insertedId: inventory.id }).execute()
-    console.log(newItem)
     return newItem
   } catch (e) {
     return []

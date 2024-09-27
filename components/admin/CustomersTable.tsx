@@ -12,7 +12,7 @@ export default function CustomersTable({ customers }: { customers: SelectClient[
         <TableColumn>Phone number</TableColumn>
         <TableColumn>Address</TableColumn>
       </TableHeader>
-      <TableBody emptyContent={"No orders to display"}>
+      <TableBody emptyContent={"No customers to display"}>
         {customers.map((customer) => {
           return (
             <TableRow key={customer.id}>
