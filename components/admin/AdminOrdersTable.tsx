@@ -7,6 +7,7 @@ import { ChipProps } from "@nextui-org/chip";
 import { useCallback } from "react";
 import { User } from "@nextui-org/user";
 import { EyeIcon, EditIcon, DeleteIcon } from "lucide-react";
+import { deleteOrder } from "@/lib/actions/orders";
 
 
 const columns = [
@@ -71,13 +72,13 @@ export default function AdminOrdersTable({ orders }: { orders: SelectOrder[] }) 
                 <EyeIcon />
               </span>
             </Tooltip>
-            <Tooltip content="Edit user">
+            <Tooltip content="Edit Order">
               <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
                 <EditIcon />
               </span>
             </Tooltip>
-            <Tooltip color="danger" content="Delete user">
-              <span className="text-lg text-danger cursor-pointer active:opacity-50">
+            <Tooltip color="danger" content="Delete Order">
+              <span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => deleteOrder(order.id)}>
                 <DeleteIcon />
               </span>
             </Tooltip>
@@ -108,31 +109,3 @@ export default function AdminOrdersTable({ orders }: { orders: SelectOrder[] }) 
 
   )
 }
-
-
-
-{/* <Table aria-label="Example static collection table"> */ }
-{/*   <TableHeader> */ }
-{/*     <TableColumn>Order Number</TableColumn> */ }
-{/*     <TableColumn>Quantity</TableColumn> */ }
-{/*     <TableColumn>Price</TableColumn> */ }
-{/*     <TableColumn>Oder date</TableColumn> */ }
-{/*     <TableColumn>STATUS</TableColumn> */ }
-{/*   </TableHeader> */ }
-{/*   <TableBody emptyContent={"No orders to display"}> */ }
-{/*     {orders.map((order) => { */ }
-{/*       return ( */ }
-{/*         <TableRow key={order.id}> */ }
-{/*           <TableCell>{order.id}</TableCell> */ }
-{/**/ }
-{/*           <TableCell>1</TableCell> */ }
-{/*           <TableCell>29.99$</TableCell> */ }
-{/*           <TableCell>{order.created_at?.toDateString()}</TableCell> */ }
-{/*           <TableCell>{order.status}</TableCell> */ }
-{/*         </TableRow> */ }
-{/*       ) */ }
-{/*     })} */ }
-{/**/ }
-{/*   </TableBody> */ }
-{/* </Table> */ }
-

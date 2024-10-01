@@ -1,3 +1,4 @@
+"use server"
 import { client, db } from "@/db/index"
 import { InsertClient, clients } from "@/db/schema"
 import { eq } from "drizzle-orm"
@@ -42,4 +43,12 @@ export async function getAllUsers() {
     return
   }
 
+}
+
+export async function deleteUser(id: string) {
+  try {
+    db.delete(clients).where(eq(clients.id, id)).execute()
+  } catch (e) {
+    return
+  }
 }

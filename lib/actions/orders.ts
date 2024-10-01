@@ -52,3 +52,11 @@ export async function getAllOrders() {
     return
   }
 }
+
+export async function deleteOrder(id: string) {
+  try {
+    db.delete(orders).where(eq(orders.id, id)).execute()
+  } catch (e) {
+    return
+  }
+}

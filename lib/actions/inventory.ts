@@ -25,6 +25,15 @@ export async function addInventory(item: InsertInventory) {
 }
 
 
+export async function deleteItem(id: string) {
+  try {
+    db.delete(inventory).where(eq(inventory.id, id)).execute()
+  } catch (e) {
+    return
+  }
+}
+
+
 // export async function getItem(id: number) {
 //     try {
 //         const item = await db.select().from(inventory).where(eq(inventory.id, id)).execute()

@@ -1,12 +1,11 @@
 "use client"
 import { Table, TableHeader, TableColumn, TableBody, TableCell, TableRow } from "@nextui-org/table"
-import { SelectInventory, inventory } from "@/db/schema"
+import { SelectInventory } from "@/db/schema"
 import { useCallback } from "react";
 import { User } from "@nextui-org/user";
-import { Chip } from "@nextui-org/chip"
 import { Tooltip } from "@nextui-org/tooltip";
-import { ChipProps } from "@nextui-org/chip";
 import { EyeIcon, EditIcon, DeleteIcon } from "lucide-react";
+import { deleteItem } from "@/lib/actions/inventory";
 
 const columns = [
   { name: "NAME", uid: "item_name" },
@@ -47,17 +46,19 @@ export default function InventoryTable({ inventory }: { inventory: SelectInvento
         return (
           <div className="relative flex items-center gap-2">
             <Tooltip content="Details">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+              <span className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => { console.log("test") }}>
                 <EyeIcon />
               </span>
             </Tooltip>
-            <Tooltip content="Edit user">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+            <Tooltip content="Edit item">
+              <span className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => { console.log("test") }}>
                 <EditIcon />
               </span>
             </Tooltip>
-            <Tooltip color="danger" content="Delete user">
-              <span className="text-lg text-danger cursor-pointer active:opacity-50">
+            <Tooltip color="danger" content="Delete item">
+              <span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => deleteItem(item.id)
+              }
+              >
                 <DeleteIcon />
               </span>
             </Tooltip>
@@ -87,26 +88,3 @@ export default function InventoryTable({ inventory }: { inventory: SelectInvento
 
   )
 }
-
-
-{/* <Table aria-label="Example static collection table"> */ }
-{/*   <TableHeader> */ }
-{/*     <TableColumn>ID</TableColumn> */ }
-{/*     <TableColumn>Name</TableColumn> */ }
-{/*     <TableColumn>Quantity</TableColumn> */ }
-{/*     <TableColumn>Threshold</TableColumn> */ }
-{/*   </TableHeader> */ }
-{/*   <TableBody emptyContent={"No items to display"}> */ }
-{/*     {inventory.map((item) => { */ }
-{/*       return ( */ }
-{/*         <TableRow key={item.id}> */ }
-{/*           <TableCell>{item.id}</TableCell> */ }
-{/*           <TableCell>{item.item_name}</TableCell> */ }
-{/*           <TableCell>{item.quantity}</TableCell> */ }
-{/*           <TableCell>{item.threshold}</TableCell> */ }
-{/*         </TableRow> */ }
-{/*       ) */ }
-{/*     })} */ }
-{/**/ }
-{/*   </TableBody> */ }
-{/* </Table> */ }
