@@ -6,6 +6,7 @@ import { User } from "@nextui-org/user";
 import { Tooltip } from "@nextui-org/tooltip";
 import { EyeIcon, EditIcon, DeleteIcon } from "lucide-react";
 import { deleteItem } from "@/lib/actions/inventory";
+import { Button } from "@nextui-org/button";
 
 const columns = [
   { name: "NAME", uid: "item_name" },
@@ -46,21 +47,21 @@ export default function InventoryTable({ inventory }: { inventory: SelectInvento
         return (
           <div className="relative flex items-center gap-2">
             <Tooltip content="Details">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => { console.log("test") }}>
+              <Button variant="light" className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => { console.log("test") }}>
                 <EyeIcon />
-              </span>
+              </Button>
             </Tooltip>
             <Tooltip content="Edit item">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => { console.log("test") }}>
+              <Button variant="light" className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => { console.log("test") }}>
                 <EditIcon />
-              </span>
+              </Button>
             </Tooltip>
             <Tooltip color="danger" content="Delete item">
-              <span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => deleteItem(item.id)
+              <Button variant="light" className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => deleteItem(item.id)
               }
               >
                 <DeleteIcon />
-              </span>
+              </Button>
             </Tooltip>
           </div>
         );

@@ -8,6 +8,7 @@ import { useCallback } from "react";
 import { User } from "@nextui-org/user";
 import { EyeIcon, EditIcon, DeleteIcon } from "lucide-react";
 import { deleteOrder } from "@/lib/actions/orders";
+import { Button } from "@nextui-org/button";
 
 
 const columns = [
@@ -68,19 +69,19 @@ export default function AdminOrdersTable({ orders }: { orders: SelectOrder[] }) 
         return (
           <div className="relative flex items-center gap-2">
             <Tooltip content="Details">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+              <Button variant="light" className="text-lg text-default-400 cursor-pointer active:opacity-50">
                 <EyeIcon />
-              </span>
+              </Button>
             </Tooltip>
             <Tooltip content="Edit Order">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+              <Button variant="light" className="text-lg text-default-400 cursor-pointer active:opacity-50">
                 <EditIcon />
-              </span>
+              </Button>
             </Tooltip>
             <Tooltip color="danger" content="Delete Order">
-              <span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => deleteOrder(order.id)}>
+              <Button variant="light" className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => deleteOrder(order.id)}>
                 <DeleteIcon />
-              </span>
+              </Button>
             </Tooltip>
           </div>
         );
