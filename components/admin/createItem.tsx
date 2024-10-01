@@ -63,7 +63,6 @@ export default function CreateItem() {
               <form action={SubmitItem}>
                 <ModalBody>
                   <Input
-                    autoFocus
                     label="Item name"
                     placeholder=""
                     variant="bordered"
