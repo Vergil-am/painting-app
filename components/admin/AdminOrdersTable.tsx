@@ -2,13 +2,13 @@
 import { Table, TableHeader, TableColumn, TableBody, TableCell, TableRow } from "@nextui-org/table"
 import { SelectOrder } from "@/db/schema"
 import { Chip } from "@nextui-org/chip"
-import { Tooltip } from "@nextui-org/tooltip";
 import { ChipProps } from "@nextui-org/chip";
 import { useCallback } from "react";
 import { User } from "@nextui-org/user";
-import { EyeIcon, EditIcon, DeleteIcon } from "lucide-react";
-import { deleteOrder } from "@/lib/actions/orders";
-import { Button } from "@nextui-org/button";
+
+import DetailsDialog from "./dialogs/DetailsDialog";
+import EditDialog from "./dialogs/EditDialog";
+import DeleteDialog from "./dialogs/DeleteDialog";
 
 
 const columns = [
@@ -68,21 +68,9 @@ export default function AdminOrdersTable({ orders }: { orders: SelectOrder[] }) 
       case "actions":
         return (
           <div className="relative flex items-center gap-2">
-            <Tooltip content="Details">
-              <Button variant="light" className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <EyeIcon />
-              </Button>
-            </Tooltip>
-            <Tooltip content="Edit Order">
-              <Button variant="light" className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <EditIcon />
-              </Button>
-            </Tooltip>
-            <Tooltip color="danger" content="Delete Order">
-              <Button variant="light" className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => deleteOrder(order.id)}>
-                <DeleteIcon />
-              </Button>
-            </Tooltip>
+            <DetailsDialog type="orders" item={order} />
+            <EditDialog />
+            <DeleteDialog type="orders" id={order.id} />
           </div>
         );
       default:

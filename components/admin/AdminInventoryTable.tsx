@@ -1,13 +1,12 @@
 "use client"
 import { Table, TableHeader, TableColumn, TableBody, TableCell, TableRow } from "@nextui-org/table"
 import { SelectInventory } from "@/db/schema"
-import { useCallback } from "react";
+import { Key, useCallback } from "react";
 import { User } from "@nextui-org/user";
-import { Tooltip } from "@nextui-org/tooltip";
-import { EyeIcon, EditIcon, DeleteIcon } from "lucide-react";
-import { deleteItem } from "@/lib/actions/inventory";
-import { Button } from "@nextui-org/button";
-
+import DetailsDialog from "./dialogs/DetailsDialog";
+import EditDialog from "./dialogs/EditDialog";
+import DeleteDialog from "./dialogs/DeleteDialog";
+import { type } from "os";
 const columns = [
   { name: "NAME", uid: "item_name" },
   { name: "QUANTITY", uid: "quantity" },
@@ -46,23 +45,9 @@ export default function InventoryTable({ inventory }: { inventory: SelectInvento
       case "actions":
         return (
           <div className="relative flex items-center gap-2">
-            <Tooltip content="Details">
-              <Button variant="light" className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => { console.log("test") }}>
-                <EyeIcon />
-              </Button>
-            </Tooltip>
-            <Tooltip content="Edit item">
-              <Button variant="light" className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => { console.log("test") }}>
-                <EditIcon />
-              </Button>
-            </Tooltip>
-            <Tooltip color="danger" content="Delete item">
-              <Button variant="light" className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => deleteItem(item.id)
-              }
-              >
-                <DeleteIcon />
-              </Button>
-            </Tooltip>
+            <DetailsDialog type="inventory" item={item} />
+            <EditDialog />
+            <DeleteDialog type="inventory" id={item.id} />
           </div>
         );
       default:

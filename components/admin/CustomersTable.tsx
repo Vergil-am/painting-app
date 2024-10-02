@@ -2,11 +2,11 @@
 import { useCallback } from "react";
 import { Table, TableHeader, TableColumn, TableBody, TableCell, TableRow } from "@nextui-org/table"
 import { User } from "@nextui-org/user";
-import { Tooltip } from "@nextui-org/tooltip";
-import { EyeIcon, EditIcon, DeleteIcon } from "lucide-react";
 import { SelectClient } from "@/db/schema"
-import { deleteUser } from "@/lib/actions/clients";
-import { Button } from "@nextui-org/button";
+import DetailsDialog from "./dialogs/DetailsDialog";
+import EditDialog from "./dialogs/EditDialog";
+import DeleteDialog from "./dialogs/DeleteDialog";
+
 
 
 
@@ -50,23 +50,9 @@ export default function CustomersTable({ customers }: { customers: SelectClient[
       case "actions":
         return (
           <div className="relative flex items-center gap-2">
-            <Tooltip content="Details">
-              <Button variant="light" className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => { console.log("test") }}>
-                <EyeIcon />
-              </Button>
-            </Tooltip>
-            <Tooltip content="Edit item">
-              <Button variant="light" className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => { console.log("test") }}>
-                <EditIcon />
-              </Button>
-            </Tooltip>
-            <Tooltip color="danger" content="Delete item">
-              <Button variant="light" className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => { deleteUser(customer.id) }
-              }
-              >
-                <DeleteIcon />
-              </Button>
-            </Tooltip>
+            <DetailsDialog type="customers" item={customer} />
+            <EditDialog />
+            <DeleteDialog type="customers" id={customer.id} />
           </div>
         );
       default:
