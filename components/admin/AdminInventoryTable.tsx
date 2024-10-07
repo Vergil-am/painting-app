@@ -45,7 +45,6 @@ export default function InventoryTable({ inventory }: { inventory: SelectInvento
       case "actions":
         return (
           <div className="relative flex items-center gap-2">
-            <DetailsDialog type="inventory" item={item} />
             <EditDialog />
             <DeleteDialog type="inventory" id={item.id} />
           </div>

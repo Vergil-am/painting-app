@@ -28,25 +28,17 @@ export default function CustomersTable({ customers }: { customers: SelectClient[
         return (
           <User
             avatarProps={{ radius: "lg", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjKWigz5N0C8Mb5l2QCBuo9pQRHjSPeq19qA&s" }}
-            // description={item.item_name}
             name={cellValue}
           >
-            {/* {item.item_name} */}
           </User>
         );
       case "quantity":
         return (
           <div className="flex flex-col">
             <p className="text-bold text-sm capitalize">{cellValue}</p>
-            {/* <p className="text-bold text-sm capitalize text-default-400">{item.quantity}</p> */}
           </div>
         );
-      // case "status":
-      //   return (
-      //     <Chip className="capitalize" color={statusColorMap["vacation"]} size="sm" variant="flat">
-      //       {cellValue}
-      //     </Chip>
-      //   );
+
       case "actions":
         return (
           <div className="relative flex items-center gap-2">
@@ -78,30 +70,6 @@ export default function CustomersTable({ customers }: { customers: SelectClient[
     </Table>
 
   )
-  // return (
-  //   <Table aria-label="Example static collection table">
-  //     <TableHeader>
-  //       <TableColumn>ID</TableColumn>
-  //       <TableColumn>Name</TableColumn>
-  //       <TableColumn>Email</TableColumn>
-  //       <TableColumn>Phone number</TableColumn>
-  //       <TableColumn>Address</TableColumn>
-  //     </TableHeader>
-  //     <TableBody emptyContent={"No customers to display"}>
-  //       {customers.map((customer) => {
-  //         return (
-  //           <TableRow key={customer.id}>
-  //             <TableCell>{customer.id}</TableCell>
-  //             <TableCell>{customer.name}</TableCell>
-  //             <TableCell>{customer.email}</TableCell>
-  //             <TableCell>{customer.phone}</TableCell>
-  //             <TableCell>{customer.address}</TableCell>
-  //           </TableRow>
-  //         )
-  //       })}
-  //
-  //     </TableBody>
-  //   </Table>
-  // )
+
 }
 

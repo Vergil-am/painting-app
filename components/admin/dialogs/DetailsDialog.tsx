@@ -4,8 +4,10 @@ import { useDisclosure } from "@nextui-org/modal";
 import { Tooltip } from "@nextui-org/tooltip";
 import { EyeIcon } from "lucide-react";
 import { SelectClient, SelectInventory, SelectOrder } from "@/db/schema";
+import { Separator } from "@/components/ui/Separator";
+import Details from "./details";
 
-export default function DetailsDialog({ type, item }: { type: string, item: SelectInventory | SelectClient | SelectOrder }) {
+export default function DetailsDialog({ type, item }: { type: "inventory" | "orders" | "customers", item: SelectInventory | SelectClient | SelectOrder }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
 
@@ -28,14 +30,16 @@ export default function DetailsDialog({ type, item }: { type: string, item: Sele
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">Details</ModalHeader>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
-                </Button>
-              </ModalFooter>
+              <ModalContent>
+                <Details type={type} details={item} />
+                <ModalFooter>
+                  <Button color="danger" variant="light" onPress={onClose}>
+                    Close
+                  </Button>
+
+                </ModalFooter>
+              </ModalContent>
+
             </>
           )}
         </ModalContent>

@@ -34,6 +34,7 @@ export default function NavBarUser() {
         <DropdownMenu aria-label="Static Actions">
 
           <DropdownItem as={Link} href="/account" key="new" className="text-foreground text-center">Account</DropdownItem>
+          <DropdownItem as={Link} href="/admin" key="new" className="text-foreground text-center">Admin</DropdownItem>
           <DropdownItem
             variant="light"
             as={Button}
@@ -43,6 +44,7 @@ export default function NavBarUser() {
             color="danger">
             Sign out
           </DropdownItem>
+
         </DropdownMenu>
       </Dropdown>
     )
