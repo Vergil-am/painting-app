@@ -6,8 +6,6 @@ import { Select, SelectItem } from "@nextui-org/select"
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Toaster, toast } from "react-hot-toast"
-import { loadStripe } from "@stripe/stripe-js";
-import { json } from "stream/consumers";
 import axios from "axios";
 
 
@@ -112,11 +110,13 @@ export default function OrderPage({ searchParams }: { searchParams: { step: stri
                     success: "Order created successfully",
                     error: "An error occured processing your order"
                   })
-                  // sumbitOrder.then((order) => router.push(`/shop/order/payment/${order?.[0].order_nmber}`))
-                  submitOrder.then(async () => {
-                    const res = await axios.post("/api/create-payment")
-                    router.push(res.data)
-                  })
+                  submitOrder.then(
+                    (order) => router.push(`/shop/order/payment/${order?.[0].order_nmber}`)
+                  )
+                  // submitOrder.then(async () => {
+                  // const res = await axios.post("/api/create-payment")
+                  // router.push(`/order/payment/${res.data}`)
+                  // })
                 }}
               >
                 <div>
@@ -143,7 +143,9 @@ export default function OrderPage({ searchParams }: { searchParams: { step: stri
                   </label>
                   <Input name="phone" id="phone" placeholder="+1 (555) 555-5555" required />
                 </div>
-                <div></div>
+                <div>
+
+                </div>
                 <Button type="submit">Order</Button>
               </form>
 

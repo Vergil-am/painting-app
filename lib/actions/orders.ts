@@ -14,14 +14,17 @@ export async function createOrder(order: InsertOrder) {
       order_nmber: orders.id,
       created_at: orders.created_at
     }).execute()
+    console.log(newOrder)
 
-    await SendSMS(order.phone, `Dear: ${order.name} your order number : ${newOrder[0].order_nmber} has been created ${newOrder[0].created_at}`)
+    // await SendSMS(order.phone, `Dear: ${order.name} your order number : ${newOrder[0].order_nmber} has been created ${newOrder[0].created_at}`)
+    //
     // const user = await getUserById(order.client_id as string)
     // if (user) {
     //   await SendSMS(user?.phone, `your order number : ${newOrder[0].order_nmber} has been created ${newOrder[0].created_at}`)
     // }
     return newOrder
   } catch (e) {
+    console.log(e)
     return
   }
 }
@@ -56,6 +59,15 @@ export async function getAllOrders() {
 export async function deleteOrder(id: string) {
   try {
     db.delete(orders).where(eq(orders.id, id)).execute()
+  } catch (e) {
+    return
+  }
+}
+
+
+export async function payOrder(id: string) {
+  try {
+    db.update(orders).set({ status: "paid" }).where(eq(orders.id, id))
   } catch (e) {
     return
   }
