@@ -1,4 +1,3 @@
-"use client"
 import AdminOrdersTable from "@/components/admin/AdminOrdersTable"
 import { getAllOrders } from "@/lib/actions/orders"
 
