@@ -13,39 +13,7 @@ export default function EditDialog({ type, item }: { type: "inventory" | "orders
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   switch (type) {
-    case "inventory": {
-      item as SelectInventory
-      return (
 
-        <>
-          <Tooltip content="Edit item">
-            <Button isIconOnly variant="light" onPress={onOpen}>
-              <EditIcon />
-            </Button>
-          </Tooltip>
-          <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-            <ModalContent>
-              {(onClose) => (
-                <>
-                  <ModalHeader className="flex flex-col gap-1">Edit Item</ModalHeader>
-                  <ModalBody>
-                  </ModalBody>
-                  <ModalFooter>
-                    <Button color="danger" variant="light" onPress={onClose}>
-                      Close
-                    </Button>
-                    <Button color="primary" onPress={onClose}>
-                      Action
-                    </Button>
-                  </ModalFooter>
-                </>
-              )}
-            </ModalContent>
-          </Modal>
-        </>
-
-      )
-    }
     case "orders": {
       const order = item as SelectOrder
       const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set([order.status || "Unpaid"]));
@@ -121,6 +89,39 @@ export default function EditDialog({ type, item }: { type: "inventory" | "orders
               {(onClose) => (
                 <>
                   <ModalHeader className="flex flex-col gap-1">Edit customer</ModalHeader>
+                  <ModalBody>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button color="danger" variant="light" onPress={onClose}>
+                      Close
+                    </Button>
+                    <Button color="primary" onPress={onClose}>
+                      Action
+                    </Button>
+                  </ModalFooter>
+                </>
+              )}
+            </ModalContent>
+          </Modal>
+        </>
+
+      )
+    }
+    case "inventory": {
+      item as SelectInventory
+      return (
+
+        <>
+          <Tooltip content="Edit item">
+            <Button isIconOnly variant="light" onPress={onOpen}>
+              <EditIcon />
+            </Button>
+          </Tooltip>
+          <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+            <ModalContent>
+              {(onClose) => (
+                <>
+                  <ModalHeader className="flex flex-col gap-1">Edit Item</ModalHeader>
                   <ModalBody>
                   </ModalBody>
                   <ModalFooter>
