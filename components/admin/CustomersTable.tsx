@@ -43,7 +43,7 @@ export default function CustomersTable({ customers }: { customers: SelectClient[
         return (
           <div className="relative flex items-center gap-2">
             <DetailsDialog type="customers" item={customer} />
-            <EditDialog />
+            <EditDialog type="customers" item={customer} />
             <DeleteDialog type="customers" id={customer.id} />
           </div>
         );
