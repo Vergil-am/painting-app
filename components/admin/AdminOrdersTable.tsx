@@ -69,7 +69,7 @@ export default function AdminOrdersTable({ orders }: { orders: SelectOrder[] }) 
         return (
           <div className="relative flex items-center gap-2">
             <DetailsDialog type="orders" item={order} />
-            <EditDialog />
+            <EditDialog type="orders" item={order} />
             <DeleteDialog type="orders" id={order.id} />
           </div>
         );

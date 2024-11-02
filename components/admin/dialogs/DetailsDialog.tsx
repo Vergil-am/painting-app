@@ -4,7 +4,6 @@ import { useDisclosure } from "@nextui-org/modal";
 import { Tooltip } from "@nextui-org/tooltip";
 import { EyeIcon } from "lucide-react";
 import { SelectClient, SelectInventory, SelectOrder } from "@/db/schema";
-import { Separator } from "@/components/ui/Separator";
 import Details from "./details";
 
 export default function DetailsDialog({ type, item }: { type: "inventory" | "orders" | "customers", item: SelectInventory | SelectClient | SelectOrder }) {

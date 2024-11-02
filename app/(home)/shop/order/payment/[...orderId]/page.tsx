@@ -1,11 +1,14 @@
 "use client";
 import { CreditCard, PaymentForm } from "react-square-web-payments-sdk";
 import { SubmitPayment } from "@/lib/actions/payment";
+import { useRouter } from "next/navigation";
+
 
 
 export default function Payment({ params }: { params: { orderId: string } }) {
   const appId = "sandbox-sq0idb-OE6rqybV3G0os1lon7lMmQ";
   const locationId = "L20SWSTF15KJ1";
+  const router = useRouter()
   return (
     <div className="w-dvw h-[90dvh] flex items-center justify-center">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -36,6 +39,7 @@ export default function Payment({ params }: { params: { orderId: string } }) {
             cardTokenizeResponseReceived={async (token) => {
               const result = await SubmitPayment(token.token, params.orderId[0]);
               console.log(result);
+              router.push("/shop/order/payment/success")
             }}
           >
             <CreditCard />

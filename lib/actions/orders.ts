@@ -67,7 +67,16 @@ export async function deleteOrder(id: string) {
 
 export async function payOrder(id: string) {
   try {
-    db.update(orders).set({ status: "paid" }).where(eq(orders.id, id))
+    db.update(orders).set({ status: "Paid" }).where(eq(orders.id, id)).execute()
+  } catch (e) {
+    return
+  }
+}
+
+
+export async function ChangeStatus(id: string, status: string) {
+  try {
+    db.update(orders).set({ status: status }).where(eq(orders.id, id)).execute()
   } catch (e) {
     return
   }
