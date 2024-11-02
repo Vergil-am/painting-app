@@ -1,12 +1,10 @@
 "use client"
 import { Table, TableHeader, TableColumn, TableBody, TableCell, TableRow } from "@nextui-org/table"
 import { SelectInventory } from "@/db/schema"
-import { Key, useCallback } from "react";
+import { useCallback } from "react";
 import { User } from "@nextui-org/user";
-import DetailsDialog from "./dialogs/DetailsDialog";
 import EditDialog from "./dialogs/EditDialog";
 import DeleteDialog from "./dialogs/DeleteDialog";
-import { type } from "os";
 const columns = [
   { name: "NAME", uid: "item_name" },
   { name: "QUANTITY", uid: "quantity" },
@@ -45,7 +43,7 @@ export default function InventoryTable({ inventory }: { inventory: SelectInvento
       case "actions":
         return (
           <div className="relative flex items-center gap-2">
-            <EditDialog />
+            <EditDialog type="inventory" item={item} />
             <DeleteDialog type="inventory" id={item.id} />
           </div>
         );
