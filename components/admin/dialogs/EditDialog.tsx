@@ -11,12 +11,12 @@ import { useState, useMemo } from "react";
 
 export default function EditDialog({ type, item }: { type: "inventory" | "orders" | "customers", item: SelectInventory | SelectClient | SelectOrder }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
+  const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(["Unpaid"]));
   switch (type) {
 
     case "orders": {
       const order = item as SelectOrder
-      const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set([order.status || "Unpaid"]));
+      setSelectedKeys(new Set([order.status || "Unpaid"]))
       async function updateStatus() {
         const status = selectedKeys
         console.log(selectedKeys)
